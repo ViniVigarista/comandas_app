@@ -3,5 +3,5 @@ bp_index = Blueprint('index', __name__, url_prefix="/index", template_folder='te
 
 ''' rotas dos formulários '''
 @bp_index.route('/index/')
-def formListaindex():
+def formIndex():
     return render_template('formIndex.html'), 200

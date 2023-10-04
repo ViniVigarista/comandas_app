@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Clientes</title>
-</head>
-<body>
-    <h1>Rota da página de Clientes da nossa WEB APP Vinicius</h1>
-    <h1>Uso de render_template</h1>
-</body>
+{% block title %}Cliente{% endblock %}
 
-</html>
+{% block content %}
+<h1>Cliente</h1>
+<p class="important">Seja bem vindo!</p>
+<ul>
+    <li><a href="{{ url_for('index.formIndex') }}">Home</a></li>
+</ul>
+{% endblock %}
