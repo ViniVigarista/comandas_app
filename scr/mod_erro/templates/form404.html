@@ -1,5 +1,3 @@
-
-
 {% extends "base.html" %}
 
 {% block title %}Page Not Found{% endblock %}
@@ -11,9 +9,11 @@
         <h3>Favor verificar se o endereço digitado esta correto.</h3>
     </div>
 </div>
+
 <figure>
     <img src="{{ url_for('static', filename='Erro404.jpg') }}" alt="Erro 404">
 </figure>
+
 <div class="row">
     <div class="col">
         {# mostra a mensagem de erro retornada #}

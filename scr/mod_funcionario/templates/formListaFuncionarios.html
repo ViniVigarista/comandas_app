@@ -8,28 +8,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Lista de Funcionários</title>
 </head>
-<body>
+<body style="background-color: rgb(134, 252, 134);">
   <div class="container">
     <form action="{{ url_for('funcionario.formFuncionario') }}" method="POST">
       <h1>Funcionários</h1>
-      <button type="submit" name="formNovo">Novo Funcionário</button>
-    </form>
+      ID: <input type="codigo" name="codigo" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      Nome: <input type="Nome" style="border-style: solid; border-color: rgb(0, 13, 128);">
+      Matricula: <input type="Matricula" name="Matricula" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      CPF: <input type="CPF" name="CPF" id="" style="border-style: solid; border-color: rgb(0, 13, 128);">
+      Telefone: <input type="Telefone" name="Telefone" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      Grupo: <input type="Grupo" name="Grupo" id="" style="border-style: solid; border-color: rgb(0, 13, 128);">
+      Senha: <input type="Senha" name="Senha" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      <input type="button" value="Editar" class="btn btn-primary">
+      <input type="button" value="Excluir" class="btn btn-primary"><br><br>
+      <button type="submit" class="btn btn-primary" name="formNovo">Novo Funcionário</button>      
+    </form>    
 
     <table>
       <thead>
         <tr>
-          <th scope="col">#</th><br>
+          <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Matricula</th>
+          <th scope="col">Matricula</th><br><br>
           <th scope="col">CPF</th>
-          <th scope="col">Telefone</th>
+          <th scope="col">Telefone</th><br><br>
           <th scope="col">Grupo</th>
-          <th scope="col">Senha</th>
+          <th scope="col">Senha</th><br><br>
           <th scope="col">Editar</th>
-          <th scope="col">Excluir</th>
+          <th scope="col">Excluir</th><br><br>
         </tr>
       </thead>
       <tbody>
