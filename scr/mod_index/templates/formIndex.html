@@ -3,9 +3,12 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-<h1>Index</h1>
-<p class="important">Seja bem vindo!</p>
+<body style="background-color: rgb(134, 252, 134);">
+    <h1 >Index</h1>
+<p class="important" style="color: black;" >Seja bem vindo! </p>
 <ul>
-    <li><a href="{{ url_for('index.formIndex') }}">Home</a></li>
+    <li style="color: black;"><a href="{{ url_for('index.formIndex') }}" style="color: black;">Home</a></li>
 </ul>
+</body>
+
 {% endblock %}

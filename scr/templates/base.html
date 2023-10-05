@@ -17,10 +17,10 @@
 <body>
     {% block menu %}
         <ul>
-            <li><a href="{{ url_for('index.formIndex') }}"><i class="fas fa-home"></i> HOME</a></li>
-            <li><a href="{{ url_for('funcionario.formListaFuncionario') }}"><i class="fas fa-cart-arrow-down"></i> FUNCIONÁRIOS</a></li>
-            <li><a href="{{ url_for('cliente.formListaCliente') }}"><i class="fas fa-users"></i> CLIENTES</a></li>
-            <li><a href="{{ url_for('produto.formListaProduto') }}"><i class="fas fa-pizza-slice"></i> PRODUTOS</a></li>
+            <li><a href="{{ url_for('index.formIndex') }}" style="color: black;"><i class="fas fa-home" style="color: black;"></i> HOME</a></li>
+            <li><a href="{{ url_for('funcionario.formListaFuncionario') }}" style="color: black;"><i class="fas fa-cart-arrow-down" style="color: black;"></i> FUNCIONÁRIOS</a></li>
+            <li><a href="{{ url_for('cliente.formListaCliente') }}" style="color: black;"><i class="fas fa-users" style="color: black;"></i> CLIENTES</a></li>
+            <li><a href="{{ url_for('produto.formListaProduto') }}" style="color: black;"><i class="fas fa-pizza-slice" style="color: black;"></i> PRODUTOS</a></li>
         </ul>        
 {% endblock %}
 
@@ -30,7 +30,7 @@
 </div>
 
 {% block footer %}
-    <a href="{{ url_for('index.formIndex') }}">&copy; 2022 by AbcBolinhas</a>
+    <a href="{{ url_for('index.formIndex') }}" style="color: black;">&copy; 2023 by ViniVigarista</a>
 {% endblock %}
 
     {% block js %}{% endblock %}

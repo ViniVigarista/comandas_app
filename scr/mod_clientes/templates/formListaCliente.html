@@ -1,11 +1,50 @@
 {% extends "base.html" %}
 
-{% block title %}Cliente{% endblock %}
+{% block title %}Funcionários{% endblock %}
 
 {% block content %}
-<h1>Cliente</h1>
-<p class="important">Seja bem vindo!</p>
-<ul>
-    <li><a href="{{ url_for('index.formIndex') }}">Home</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Lista de Clientes</title>
+</head>
+<body style="background-color: rgb(134, 252, 134);">
+  <div class="container">
+    <form action="{{ url_for('cliente.formListaCliente') }}" method="POST">
+      <h1>Clientes</h1>
+      
+      ID: <input type="ID" style="border-style: solid; border-color: rgb(0, 13, 128);" name="ID" id=""><br><br>
+      Nome: <input type="Nome" name="Nome" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>      
+      CPF: <input type="CPF" name="CPF" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      Senha: <input type="Senha" name="Senha" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      <button type="submit" class="btn btn-primary" name="formNovo">Novo Cliente</button><br><br>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th><br><br>      
+          <th scope="col">CPF</th><br><br>
+          <th scope="col">Senha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Nome Funcionário</td>
+          <td>123.456.789-00</td>                
+          <td>*****</td>
+          <td><i class="fas fa-edit"></i></td>
+          <td><i class="fas fa-trash"></i></td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
 {% endblock %}
