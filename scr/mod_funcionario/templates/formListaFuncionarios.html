@@ -3,35 +3,51 @@
 {% block title %}Funcionários{% endblock %}
 
 {% block content %}
-<form action="{{ url_for('funcionario.formFuncionario') }}" method="POST">
-    <h1>Funcionários</h1>
-    <button type="submit" name="formNovo">Novo Funcionário</button>
-</form>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Lista de Funcionários</title>
+</head>
+<body>
+  <div class="container">
+    <form action="{{ url_for('funcionario.formFuncionario') }}" method="POST">
+      <h1>Funcionários</h1>
+      <button type="submit" name="formNovo">Novo Funcionário</button>
+    </form>
 
-<table>
-    <thead>
+    <table>
+      <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Matricula</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Telefone</th>
-            <th scope="col">Grupo</th>
-            <th scope="col">Senha</th>
+          <th scope="col">#</th><br>
+          <th scope="col">Nome</th>
+          <th scope="col">Matricula</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Grupo</th>
+          <th scope="col">Senha</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr>
-            <th scope="row">...</th>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td><i class="fas fa-edit"></i></td>
-            <td><i class="fas fa-trash"></i></td>
+          <td>1</td>
+          <td>Nome Funcionário</td>
+          <td>12345</td>
+          <td>123.456.789-00</td>
+          <td>(12) 3456-7890</td>
+          <td>Atendente</td>
+          <td>*****</td>
+          <td><i class="fas fa-edit"></i></td>
+          <td><i class="fas fa-trash"></i></td>
         </tr>
-    </tbody>
-</table>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
 {% endblock %}
