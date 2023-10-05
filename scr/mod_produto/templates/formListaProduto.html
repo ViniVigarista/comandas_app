@@ -10,14 +10,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Lista de Produtos</title>
+
+  <style>
+    input {
+      padding: 3px;
+      border: 2px solid #ccc;
+      transition: border-color 0.9s; /* Transição suave para a cor da borda */
+    }
+
+    /* Estilo para o campo quando está em foco */
+    input:focus {
+      border-color: rgb(26, 2, 82); /* Cor azul para a borda quando em foco */
+      outline: none; /* Remove o contorno padrão que alguns navegadores aplicam */
+      background-color: #f0f0f0; /* Cor de fundo quando em foco */
+    }
+  </style>
+
 </head>
 <body style="background-color: rgb(134, 252, 134);">
   <div class="container">
     <form action="{{ url_for('cliente.formListaCliente') }}" method="POST">
       <h1 style="color: darkblue;">Produtos</h1>
-      ID: <input type="ID" name="ID" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
-      Nome: <input type="Nome" name="Nome" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>         
-      Descrição: <input type="Descricao" name="Descricao" id="" style="border-style: solid; border-color: rgb(0, 13, 128);"><br><br>
+      ID: <input type="ID" name="ID" id=""><br><br>
+      Nome: <input type="Nome" name="Nome" id="" maxlength="100"><br><br>         
+      Descrição: <input type="Descricao" name="Descricao" id=""  maxlength="100"><br><br>
       Foto: <i class="fa-solid fa-upload"></i><input type="submit" class="btn btn-primary"><br><br>
       <button type="submit" name="formNovo" class="btn btn-primary">Novo Produto</button><br><br>
     </form>
