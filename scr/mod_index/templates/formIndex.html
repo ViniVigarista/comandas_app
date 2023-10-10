@@ -3,12 +3,19 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-<body style="background-color: rgb(134, 252, 134);">
+<body style="background-color: rgb(204, 242, 245);">
     <h1 >Index</h1>
 <p class="important" style="color: black;" >Seja bem vindo! </p>
 <ul>
-    <li style="color: black;"><a href="{{ url_for('index.formIndex') }}" style="color: black;">Home</a></li>
+    <ul>
+            <li><a href="{{ url_for('index.formIndex') }}" style="color: black;"><i class="fas fa-home" style="color: black;"></i> HOME</a></li>
+            <li><a href="{{ url_for('funcionario.formListaFuncionario') }}" style="color: black;"><i class="fas fa-cart-arrow-down" style="color: black;"></i> FUNCIONÁRIOS</a></li>
+            <li><a href="{{ url_for('cliente.formListaCliente') }}" style="color: black;"><i class="fas fa-users" style="color: black;"></i> CLIENTES</a></li>
+            <li><a href="{{ url_for('produto.formListaProduto') }}" style="color: black;"><i class="fas fa-pizza-slice" style="color: black;"></i> PRODUTOS</a></li>
+        </ul>
 </ul>
+
+
 </body>
 
 {% endblock %}

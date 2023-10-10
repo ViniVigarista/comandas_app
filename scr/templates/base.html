@@ -16,12 +16,43 @@
 
 <body>
     {% block menu %}
-        <ul>
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-gradient-dark z-index-3 py-3">
+  <div class="container" style="background-color: whitesmoke; border-radius: 5%; width: 100%;">
+    <a class="navbar-brand text-black" href="{{ url_for('index.formIndex') }}" >
+      Index
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation" >
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item px-3">
+          <a class="nav-link text-black opacity-8" href="{{ url_for('funcionario.formListaFuncionario') }}">
+            Funcionarios
+          </a>
+        </li>
+
+        <li class="nav-item px-3">
+          <a class="nav-link text-black opacity-8" href="{{ url_for('cliente.formListaCliente') }}">
+            Clientes
+          </a>
+        </li>
+
+        <li class="nav-item px-3">
+          <a class="nav-link text-black opacity-8" href="{{ url_for('produto.formListaProduto') }}" style="color: black;">
+            Produtos
+          </a>
+        </li>
+    </div>
+  </div>
+</nav>
+        <!-- <ul>
             <li><a href="{{ url_for('index.formIndex') }}" style="color: black;"><i class="fas fa-home" style="color: black;"></i> HOME</a></li>
             <li><a href="{{ url_for('funcionario.formListaFuncionario') }}" style="color: black;"><i class="fas fa-cart-arrow-down" style="color: black;"></i> FUNCIONÁRIOS</a></li>
             <li><a href="{{ url_for('cliente.formListaCliente') }}" style="color: black;"><i class="fas fa-users" style="color: black;"></i> CLIENTES</a></li>
             <li><a href="{{ url_for('produto.formListaProduto') }}" style="color: black;"><i class="fas fa-pizza-slice" style="color: black;"></i> PRODUTOS</a></li>
-        </ul>        
+        </ul>    -->
 {% endblock %}
 
 <div class="container-fluid mt-3">
@@ -31,6 +62,7 @@
 
 {% block footer %}
     <a href="{{ url_for('index.formIndex') }}" style="color: black;">&copy; 2023 by ViniVigarista</a>
+    
 {% endblock %}
 
     {% block js %}{% endblock %}
