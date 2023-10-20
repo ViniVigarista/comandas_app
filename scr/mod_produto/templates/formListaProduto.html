@@ -6,10 +6,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Lista de Produtos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Lista de Produto</title>
 
   <style>
     input {
@@ -29,35 +29,36 @@
 </head>
 <body style="background-color: rgb(204, 242, 245);">
   <div class="container">
-    <form action="{{ url_for('cliente.formListaCliente') }}" method="POST">
+    <form action="{{ url_for('produto.formProduto') }}" method="POST">
       <h1 style="color: darkblue;">Produtos</h1>
-      ID: <input type="ID" name="ID" id=""><br><br>
-      Nome: <input type="Nome" name="Nome" id="" maxlength="100"><br><br>         
-      Descrição: <input type="Descricao" name="Descricao" id=""  maxlength="100"><br><br>
-      Foto: <i class="fa-solid fa-upload"></i><input type="submit" class="btn btn-primary"><br><br>
-      <button type="submit" name="formNovo" class="btn btn-primary">Novo Produto</button><br><br>
+      <button type="submit" name="formNovo" class="btn btn-primary">Novo Produto</button><br>
     </form>
 
-    <table>
-      <thead>
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th><br><br>         
           <th scope="col">Descrição</th><br><br>
+          <th scope="col">Valor Unitário</th><br><br>
           <th scope="col">Foto</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Nome Produto</td>
-          <td>Coca-Cola</td>                
-          <td></td>
-          <td><i class="fas fa-edit"></i></td>
-          <td><i class="fas fa-trash"></i></td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-      </tbody>
+        <tbody>
+          {% if result %}
+          {% for row in result %}
+          <tr>
+            <th scope="row"> {{ row['id_funcionario'] }}</th>
+            <td> {{ row['nome'] }}</td>
+            <td> {{ row['descricao'] }}</td>
+            <td> {{ row['valor_unitario'] }}</td>
+            <td> {{ row['foto'] }}</td>
+            <td><i class="fas fa-edit"></i></td>
+            <td><i class="fas fa-trash"></i></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
     </table>
   </div>
 </body>

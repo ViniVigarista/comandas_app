@@ -3,7 +3,7 @@
 {% block title %}Funcionário{% endblock %}
 
 {% block content %}
-<form name="formAdicionar" id="formAdicionar" action="" method="POST">
+<form name="formAdicionar" id="formAdicionar" action="{{ url_for('cliente.insert') }}" method="POST">
     <h1>Cliente</h1>
     <input type="text" name="id" id="id" value="" placeholder="Código" readonly>
     <label for="id">ID</label>
@@ -13,8 +13,6 @@
     <br>
     <input type="text" name="cpf" id="cpf" value="" placeholder="CPF" maxlength="15" required>
     <label for="cpf">CPF</label>
-    <br>
-    <br>    
     <br>
     <input type="password" name="senha" id="senha" value="Bolinhas" placeholder="Senha" required>
     <label for="senha">Senha</label>
