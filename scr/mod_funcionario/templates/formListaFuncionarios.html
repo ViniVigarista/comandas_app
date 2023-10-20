@@ -3,6 +3,8 @@
 {% block title %}Funcionários{% endblock %}
 
 {% block content %}
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Lista de Funcionários</title>
+
+  
 
   <style>
     input {
@@ -31,46 +35,41 @@
   <div class="container">
     <form action="{{ url_for('funcionario.formFuncionario') }}" method="POST">
       <h1>Funcionários</h1>
-      ID: <input type="codigo" name="codigo" id="" ><br><br>
-      Nome: <input type="Nome"  required maxlength="100">
-      Matricula: <input type="Matricula" name="Matricula" id="" ><br><br>
-      CPF: <input type="CPF" name="CPF" id=""  maxlength="14" required>
-      Telefone: <input type="Telefone" name="Telefone" id=""  maxlength="11"><br><br>
-      Grupo: <input type="Grupo" name="Grupo" id="" >
-      Senha: <input type="Senha" name="Senha" id="" required><br><br>
-      <input type="button" value="Editar" class="btn btn-primary">
-      <input type="button" value="Excluir" class="btn btn-primary"><br><br>
-      <button type="submit" class="btn btn-primary" name="formNovo">Novo Funcionário</button>      
-    </form>    
-
-    <table>
-      <thead>
+      <button type="submit" class="btn btn-primary" name="formNovo">Novo Funcionário</button><br><br><br>      
+    </form>        
+    
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Matricula</th><br><br>
+          <th scope="col">Matricula</th>
           <th scope="col">CPF</th>
-          <th scope="col">Telefone</th><br><br>
+          <th scope="col">Telefone</th>
           <th scope="col">Grupo</th>
-          <th scope="col">Senha</th><br><br>
-          <th scope="col">Editar</th>
-          <th scope="col">Excluir</th><br><br>
+          <th scope="col">Senha</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Nome Funcionário</td>
-          <td>12345</td>
-          <td>123.456.789-00</td>
-          <td>(12) 3456-7890</td>
-          <td>Atendente</td>
-          <td>*****</td>
-          <td><i class="fas fa-edit"></i></td>
-          <td><i class="fas fa-trash"></i></td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-      </tbody>
+        <tbody>
+          {% if result %}
+          {% for row in result %}
+          <tr>
+            <th scope="row"> {{ row['id_funcionario'] }}</th>
+            <td> {{ row['nome'] }}</td>
+            <td> {{ row['matricula'] }}</td>
+            <td> {{ row['cpf'] }}</td>
+            <td> {{ row['telefone'] }}</td>
+            <td> {{ row['grupo'] }}</td>
+            <td> {{ row['senha'] }}</td>
+            <td><i class="fas fa-edit"></i></td>
+            <td><i class="fas fa-trash"></i></td>
+            
+          </tr>
+
+          
+          {% endfor %}
+          {% endif %}
+        </tbody>      
     </table>
   </div>
 </body>

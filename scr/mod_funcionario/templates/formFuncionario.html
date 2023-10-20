@@ -3,7 +3,7 @@
 {% block title %}Funcionário{% endblock %}
 
 {% block content %}
-<form name="formAdicionar" id="formAdicionar" action="" method="get">
+<form name="formAdicionar" id="formAdicionar" action="{{ url_for('funcionario.insert') }}" method="POST">
     <h1>Funcionário</h1>
     <input type="text" name="id" id="id" value="" placeholder="Código" readonly>
     <label for="id">Código</label>
