@@ -10,15 +10,16 @@ bp_funcionario = Blueprint('funcionario', __name__, url_prefix="/funcionario", t
 @bp_funcionario.route('/', methods=['GET', 'POST'])
 def formListaFuncionario():
     try:
+        response = requests.get( "http://localhost:8000/funcionario/" )
         response = requests.get(ENDPOINT_FUNCIONARIO, headers=HEADERS_API)
-        result = response.json()  
+        result = response.json()          
 
         print (ENDPOINT_FUNCIONARIO)
 
         if (response.status_code != 200):
             raise Exception(result[0])
-        return render_template('formListaFuncionarios.html', result=result[0])   
-    
+        
+        return render_template('formListaFuncionarios.html', result=result[0])       
     except Exception as e:
         return render_template('formListaFuncionarios.html', msgErro=e.args[0])
         
@@ -45,7 +46,6 @@ def insert():
         payload = {'id_FUNCIONARIO': id_funcionario, 'nome': nome, 'matricula': matricula, 'cpf': cpf, 'telefone': telefone, 'grupo': grupo, 'senha': senha}
 
         # executa o verbo POST da API e armazena seu retorno
-        
         response = requests.post(ENDPOINT_FUNCIONARIO, headers=HEADERS_API, json=payload)
         result = response.json()
 
