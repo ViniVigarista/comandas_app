@@ -3,6 +3,7 @@ import requests
 from settings import HEADERS_API, ENDPOINT_CLIENTE
 from funcoes import Funcoes
 
+
 bp_cliente = Blueprint('cliente', __name__, url_prefix="/cliente", template_folder='templates')
 
 ''' rotas dos formulários '''
@@ -13,10 +14,15 @@ bp_cliente = Blueprint('cliente', __name__, url_prefix="/cliente", template_fold
 @bp_cliente.route('/', methods=['GET', 'POST'])
 def formListaCliente():
     try:
+        response = requests.get( "http://localhost:8000/cliente/" )
         response = requests.get(ENDPOINT_CLIENTE, headers=HEADERS_API)
         result = response.json()
+
+        print(ENDPOINT_CLIENTE)
+
         if (response.status_code != 200):
             raise Exception(result[0])
+        
         return render_template('formListaCliente.html', result=result[0])
     except Exception as e:
         return render_template('formListaCliente.html', msgErro=e.args[0])
@@ -24,6 +30,7 @@ def formListaCliente():
 @bp_cliente.route('/form-cliente/', methods=['POST'])
 def formCliente():
     return render_template('formCliente.html')
+
 
 @bp_cliente.route('/insert', methods=['POST'])
 def insert():

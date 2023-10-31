@@ -1,35 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}Funcionário{% endblock %}
+{% block title %}Cliente{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-center">
     <div class="card" style="width: 20rem;">
-            <form name="formAdicionar" id="formAdicionar" action="{{ url_for('cliente.insert') }}" method="POST">
-                <div>
-                    <h1>Cliente</h1>
-                </div>
-                    <div class="mb-3">
-                        <input type="text" name="id" id="id" value="" placeholder="Código" readonly>
-                        <label for="id" class="form-label">ID</label>
-                        <br>
-                        <input type="text" name="nome" id="nome" value="" placeholder="Nome Cliente" maxlength="100" autofocus required>
-                        <label for="nome" class="form-label">Nome Cliente</label>
-                        <br>
-                        <input type="text" name="cpf" id="cpf" value="" placeholder="CPF" maxlength="15" required>
-                        <label for="cpf" class="form-label">CPF</label>
-                        <br>
-                        <input type="password" name="senha" id="senha" value="Bolinhas" placeholder="Senha" required>
-                        <label for="senha" class="form-label">Senha</label>
-                        <br>
-                        <input type="password" name="resenha" id="resenha" value="Bolinhas" placeholder="Senha" required>
-                        <label for="resenha" class="form-label">reSenha</label>
-                        <br>
-                    </div>  
-            <div class="d-flex justify-content-center">         
-                <button type='submit' name='salvaUsuarioDB' id='salvaUsuarioDB'><i class='fas fa-save'></i> Salvar</button>
-            </div>
-            </form>
+        <form name="formAdicionar" id="formAdicionar" action="{{ url_for('cliente.insert') }}" method="POST">
+            <h1>Cliente</h1>
+                    <input type="text" name="id" id="id" value="" placeholder="Código" readonly>
+                    <label for="id" class="form-label">ID</label>
+                    <br>
+                    <input type="text" name="nome" id="nome" value="" placeholder="Nome Cliente" maxlength="100" autofocus required>
+                    <label for="nome" class="form-label">Nome Cliente</label>
+                    <br>
+                    <input type="text" name="cpf" id="cpf" value="" placeholder="CPF" maxlength="15" required>
+                    <label for="cpf" class="form-label">CPF</label>
+                    <br>
+                    <input type="password" name="senha" id="senha" value="Bolinhas" placeholder="Senha" required>
+                    <label for="senha" class="form-label">Senha</label>
+                    <br>
+                    <input type="password" name="resenha" id="resenha" value="Bolinhas" placeholder="Senha" required>
+                    <label for="resenha" class="form-label">reSenha</label>
+                    <br>      
+                    <button type='submit' name='salvaUsuarioDB' id='salvaUsuarioDB'><i class='fas fa-save'></i> Salvar</button>
+                
+        </form>
     </div>  
 </div>          
 {% endblock %}

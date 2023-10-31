@@ -5,11 +5,11 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<title>Lista de Produto</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Lista de Produto</title>
 
   <style>
     input {
@@ -48,7 +48,7 @@
           {% if result %}
           {% for row in result %}
           <tr>
-            <th scope="row"> {{ row['id_funcionario'] }}</th>
+            <th scope="row"> {{ row['id_produto'] }}</th>
             <td> {{ row['nome'] }}</td>
             <td> {{ row['descricao'] }}</td>
             <td> {{ row['valor_unitario'] }}</td>
