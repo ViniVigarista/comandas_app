@@ -2,29 +2,39 @@
 
 {% block title %}Produto{% endblock %}
 
+{# ajusta as variáveis conforme novo ou edit #}
+{% set id = result[0].id_funcionario if result else '0' %}
+{% set nome = result[0].nome if result else '' %}
+{% set descricao = result[0].descricao if result else '' %}
+{% set valor_unitario = result[0].valor_unitario if result else '' %}
+{% set foto = result[0].foto if result else '' %}
+
+
 {% block content %}
+
 <div class="d-flex justify-content-center">    
-    <div class="card" style="width: 20rem;" >
-        <form name="formAdicionar" id="formAdicionar" action="{{ url_for('produto.insert') }}" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <div>
-                    <h1>Produto</h1>
-                </div>
-                <div class="mb-3 ">
-                    <input type="text" name="id" id="id" value="" placeholder="ID" readonly>
+    <div class="card" style="width: 50rem;" >
+        <form name="{{ 'formEditar' if result else 'formAdicionar' }}"
+        id="{{ 'formEditar' if result else 'formAdicionar' }}"
+        action="{{ url_for('produto.edit') if result else url_for('produto.insert') }}"
+        method="POST">                           
+            <h1>Produto</h1>                
+            <div class="card">
+                <form name="formAdicionar" id="formAdicionar" action="{{ url_for('produto.insert') }}" method="POST"></form>
                     <label for="id" class="form-label">ID</label>
-                    <br>
-                    <input type="text" name="nome" id="nome" value="" placeholder="Nome Produto" maxlength="100" autofocus required>
+                    <input type="text" name="id" id="id" value="{{ id }}">                    
                     <label for="nome" class="form-label">Nome Produto</label>
-                    <br>
-                    <input type="text" name="descricao" id="descricao" value="" placeholder="Descrição" maxlength="15" required>
+                    <input type="text" name="nome" id="nome" value="{{ nome }}" >
                     <label for="descricao" class="form-label">Descrição</label>
-                    <br>
-                    <input type="image" name="foto" id="foto" value="" placeholder="FOTO" maxlength="15" required>
+                    <input type="text" name="descricao" id="descricao" value="{{ descricao }}" >     
                     <label for="imagem" class="form-label">Imagem</label>
-                    <br>    
+                    <input type="file" name="foto" id="foto" value="{{ foto }}" >
+                    <label for="valor" class="form-label">Valor</label>
+                    <input type="text" name="valor" id="valor" value="{{ valor }}" >
+                    <br>  
                     <button type='submit' name='salvaUsuarioDB' id='salvaUsuarioDB'><i class='fas fa-save'></i> Salvar</button>
-                </div>
+                </form>
+                    
             </div>
         </form>
     </div>
