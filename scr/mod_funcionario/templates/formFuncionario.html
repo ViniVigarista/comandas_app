@@ -18,7 +18,7 @@
         id="{{ 'formEditar' if result else 'formAdicionar' }}"
         action="{{ url_for('funcionario.edit') if result else url_for('funcionario.insert') }}"
         method="POST">
-            <h1>Funcionário</h1><br>
+        <h1>Funcionário - {{ "%s: %s" % ('Editar Registro', id) if result else 'Novo' }}</h1>
             <div class="card">
                 <form name="formAdicionar" id="formAdicionar" action="{{ url_for('funcionario.insert') }}" method="POST">
                     <label for="id">ID</label>
@@ -81,3 +81,4 @@
     </div> 
 </div>        
 {% endblock %}
+
