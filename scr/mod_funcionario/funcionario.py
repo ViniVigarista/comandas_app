@@ -2,6 +2,11 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 import requests
 from settings import HEADERS_API, ENDPOINT_FUNCIONARIO
 from funcoes import Funcoes
+from mod_login.login import validaSessao
+
+''' rotas para PDF '''
+from mod_produto.GeraPdf import PDF
+from flask import send_file
 
 
 bp_funcionario = Blueprint('funcionario', __name__, url_prefix="/funcionario", template_folder='templates')
@@ -26,6 +31,7 @@ def formListaFuncionario():
     
 
 @bp_funcionario.route('/form-funcionario/', methods=['POST'])
+@validaSessao
 def formFuncionario():
     return render_template('formFuncionario.html')
     
@@ -115,3 +121,12 @@ def delete():
             return jsonify(erro=False, msg=result[0])
         except Exception as e:            
             return jsonify(erro=True, msgErro=e.args[0])
+        
+
+@bp_funcionario.route('/pdfTodos', methods=['POST'])
+@validaSessao
+def pdfTodos():
+        geraPdf = PDF()
+        geraPdf.listaTodos()
+        return send_file('pdfProdutos.pdf')
+        

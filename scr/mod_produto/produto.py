@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request
 import requests
 from settings import HEADERS_API, ENDPOINT_PRODUTO
 import base64
+from mod_produto.GeraPdf import PDF
+from flask import send_file
 from funcoes import Funcoes
 
 
@@ -95,3 +97,13 @@ def edit():
     except Exception as e:
 
         return render_template('formListaProduto.html', msgErro=e.args[0])
+    
+    ''' rotas para PDF '''
+from mod_produto.GeraPdf import PDF
+from flask import send_file
+
+@bp_produto.route('/pdfTodos', methods=['POST'])
+def pdfTodos():
+    geraPdf = PDF()
+    geraPdf.listaTodos()
+    return send_file('pdfProdutos.pdf')
