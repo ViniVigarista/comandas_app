@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
+
+
 {% block title %}Index{% endblock %}
 
+
+
 {% block content %}
+
+{% if 'login' in session %}
+Bem-vindo <b>{{ session['login'] }}</b>
+{% endif %}
+
 <body style="background-color: rgb(204, 242, 245);">
     <h1 >Index</h1>
 <p class="important" style="color: black;" >Seja bem vindo! </p>
@@ -14,6 +23,7 @@
             <li><a href="{{ url_for('produto.formListaProduto') }}" style="color: black;"><i class="fas fa-pizza-slice" style="color: black;"></i> PRODUTOS</a></li>
         </ul>
 </ul>
+
 
 
 </body>

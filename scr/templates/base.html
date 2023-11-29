@@ -12,7 +12,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.2-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.4.2-web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='sweetalert2/sweetalert2.min.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.icons') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+    <script>
+      function atualizarContador() {
+          fetch("/contador")
+              .then(response => response.text())
+              .then(tempoRestante => {
+                  document.getElementById("contador").innerText = tempoRestante;
+                  if (tempoRestante !== "Tempo Encerrado") {
+                      setTimeout(atualizarContador, 1000);
+                  }
+              });
+      }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            atualizarContador();
+        });
+    </script>
+
 </head>
 
 
@@ -47,8 +66,14 @@
             Produtos
           </a>
         </li>
+
+        <li>
+          <a a class="nav-link text-black opacity-8" href="{{ url_for('login.logoff') }}" style="color: black;"><i class="fas fa-door-open"></i> SAIR</a>
+
+        </li>
     </div>
-  </div>
+    
+    </div>
 </nav>
         <!-- <ul>
             <li><a href="{{ url_for('index.formIndex') }}" style="color: black;"><i class="fas fa-home" style="color: black;"></i> HOME</a></li>
@@ -68,14 +93,15 @@
     
 {% endblock %}
 
-    {% block js %}{% endblock %}
+    
     <!-- monitorar log do navegador, pois a ordem interfere -->
     <script src="{{ url_for('static', filename='jquery-3.7.1.js') }}"></script>
     <script src="{{ url_for('static', filename='jquery.maskedinput.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap-5.3.2-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='fontawesome-free-6.4.2-web/js/all.js') }}"></script>
     <script src="{{ url_for('static', filename='sweetalert2/sweetalert2.all.min.js') }}"></script>
-
+   
+    {% block js %}{% endblock %}
 <!-- redirect - request.args.get('msg' ou 'msgErro') -->
 {% if request.args.get('msg'): %}
 <script>
